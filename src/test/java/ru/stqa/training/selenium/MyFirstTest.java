@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
-public class MyFirstTest {
+public class MyFirstTest extends TestBase {
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -46,6 +46,7 @@ public class MyFirstTest {
 
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         wait = new WebDriverWait(driver, 10);
 
        /* DesiredCapabilities caps = new DesiredCapabilities();
@@ -84,19 +85,19 @@ public class MyFirstTest {
 
     }
 
-    @Test
+    /*@Test
     public void mySecondTest(){
         List<WebElement> web;
         driver.get("http://localhost/litecart/en/");
-       /* web = driver.findElements(By.xpath("//div[@id='box-most-popular']//" +
-                "div[@class='content']//ul[@class='listing-wrapper products']"));*/
-        /*List<WebElement> web2=driver.findElements(By.xpath("//html//div[@id='box-most-popular']//li[1]"));*/
+       *//* web = driver.findElements(By.xpath("//div[@id='box-most-popular']//" +
+                "div[@class='content']//ul[@class='listing-wrapper products']"));*//*
+        *//*List<WebElement> web2=driver.findElements(By.xpath("//html//div[@id='box-most-popular']//li[1]"));*//*
         List<WebElement> web3 = driver.findElements(By.cssSelector(".sticker new"));
         for (int i = 0; i <web3.size() ; i++) {
                  web3.get(i).click();
         }
 
-    }
+    }*/
 
     @Test
     public void myFirstTest()  {
@@ -114,34 +115,48 @@ public class MyFirstTest {
         String header = driver.findElement(By.xpath("//*[@id=\"content\"]/h1")).getText();
 
         String XPath = "//*[@id=\"content\"]/h1";
-        Boolean iselementpresent = driver.findElements(By.xpath(XPath)).size()!= 0;
-        if (iselementpresent == true)
-        {
-            System.out.print(XPath+ " Is Present On The Page");
-        }
-        else
-        {
-            System.out.print(XPath+" Is Not Present On The Page");
-        }
-
 
         WebElement menue1_1 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Template')]"));
+        Boolean iselementpresent = driver.findElements(By.xpath(XPath)).size()!= 0;
+        System.out.println(iselementpresent);
         menue1_1.click();
+
         WebElement menue1_2 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Logotype')]"));
+        Boolean iselementpresent_2 = driver.findElements(By.xpath(XPath)).size()!= 0;
+        System.out.println(iselementpresent_2);
         menue1_2.click();
+
         WebElement menue3 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Catalog')]"));
+        Boolean iselementpresent_3 = driver.findElements(By.xpath(XPath)).size()!= 0;
+        System.out.println(iselementpresent_3);
         menue3.click();
+
         WebElement menue3_1 = driver.findElement(By.xpath("//li[@id='doc-catalog']//a[@href='http://localhost/" +
                                                "litecart/admin/?app=catalog&doc=catalog']//span[@class='name']"));
+        Boolean iselementpresent_4 = driver.findElements(By.xpath(XPath)).size()!= 0;
+        System.out.println(iselementpresent_4);
         menue3_1.click();
+
         WebElement menue3_2 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Product Groups')]"));
+        Boolean iselementpresent_5 = driver.findElements(By.xpath(XPath)).size()!= 0;
+        System.out.println(iselementpresent_5);
         menue3_2.click();
+
         WebElement menue3_3 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Option Groups')]"));
+        Boolean iselementpresent_6 = driver.findElements(By.xpath(XPath)).size()!= 0;
+        System.out.println(iselementpresent_6);
         menue3_3.click();
+
         WebElement menue3_4 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Manufacturers')]"));
+        Boolean iselementpresent_7 = driver.findElements(By.xpath(XPath)).size()!= 0;
+        System.out.println(iselementpresent_7);
         menue3_4.click();
+
         WebElement menue3_5 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Delivery Statuses')]"));
+        Boolean iselementpresent_8 = driver.findElements(By.xpath(XPath)).size()!= 0;
+        System.out.println(iselementpresent_8);
         menue3_5.click();
+
         WebElement menue3_6 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Suppliers')]"));
         menue3_6.click();
         WebElement menue3_7 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Sold Out Statuses')]"));
@@ -249,6 +264,8 @@ public class MyFirstTest {
         WebElement menue19_1 = driver.findElement(By.xpath("//li[@id='doc-vqmods']//a[@href='http://" +
                 "localhost/litecart/admin/?app=vqmods&doc=vqmods']//span[@class='name']"));
         menue19_1.click();
+
+
 
     }
 

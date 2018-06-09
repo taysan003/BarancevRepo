@@ -19,8 +19,8 @@ public class TestBase {
             return false;
         }
     }
-    boolean areElementsPresent(WebDriver driver, By locator) {
-        return driver.findElements(locator).size() > 0;
+    boolean areElementsPresent(WebDriver driver, String locator) {
+        return driver.findElements(By.id(locator)).size() > 0;
     }
 
 }
