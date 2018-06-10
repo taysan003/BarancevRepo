@@ -85,19 +85,31 @@ public class MyFirstTest extends TestBase {
 
     }
 
-    /*@Test
+    @Test
     public void mySecondTest(){
-        List<WebElement> web;
+
         driver.get("http://localhost/litecart/en/");
-       *//* web = driver.findElements(By.xpath("//div[@id='box-most-popular']//" +
-                "div[@class='content']//ul[@class='listing-wrapper products']"));*//*
-        *//*List<WebElement> web2=driver.findElements(By.xpath("//html//div[@id='box-most-popular']//li[1]"));*//*
-        List<WebElement> web3 = driver.findElements(By.cssSelector(".sticker new"));
-        for (int i = 0; i <web3.size() ; i++) {
-                 web3.get(i).click();
+        List<WebElement> list = driver.findElements(By.xpath("//html//div[@id='box-most-popular']//li"));
+
+        String sticker_new = null;
+        String sticker_sale = null;
+        for (int i = 0; i <list.size() ; i++) {
+
+            sticker_new=list.get(i).findElement(By.className("sticker new")).getText();
+            WebElement webElement =list.get(i);
+            webElement.findElement(By.class )
+            System.out.println(sticker_new);
+           /* sticker_sale=list.get(i).findElement(By.className("sticker sale")).getText();
+            if(sticker_sale.equals("sticker sale")){
+                System.out.println(sticker_sale);
+
+            } else if (sticker_new.equals("sticker new")){
+                System.out.println(sticker_new);
+            }*/
         }
 
-    }*/
+
+    }
 
     @Test
     public void myFirstTest()  {
