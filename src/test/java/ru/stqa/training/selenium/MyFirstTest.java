@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
+import static org.junit.Assert.assertFalse;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 public class MyFirstTest extends TestBase {
@@ -91,14 +92,28 @@ public class MyFirstTest extends TestBase {
         driver.get("http://localhost/litecart/en/");
         List<WebElement> list = driver.findElements(By.xpath("//html//div[@id='box-most-popular']//li"));
 
-        String sticker_new = null;
-        String sticker_sale = null;
+
+
         for (int i = 0; i <list.size() ; i++) {
 
-            sticker_new=list.get(i).findElement(By.className("sticker new")).getText();
+
+            if (list.get(i).getText().contains("NEW")){
+
+                String sticker_new = list.get(i).getText();
+                System.out.println(sticker_new);
+
+            } else if (list.get(i).getText().contains("SALE")) {
+                String sticker_sale = list.get(i).getText();
+                System.out.println(sticker_sale);
+            }
+
+
+/*
             WebElement webElement =list.get(i);
-            webElement.findElement(By.class )
-            System.out.println(sticker_new);
+            sticker_sale = webElement.findElement(By.name("sticker_sale")).getText();
+            System.out.println(sticker_sale);
+            sticker_new = webElement.findElement(By.name("sticker_new")).getText();
+            System.out.println(sticker_new);*/
            /* sticker_sale=list.get(i).findElement(By.className("sticker sale")).getText();
             if(sticker_sale.equals("sticker sale")){
                 System.out.println(sticker_sale);
@@ -130,42 +145,51 @@ public class MyFirstTest extends TestBase {
 
         WebElement menue1_1 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Template')]"));
         Boolean iselementpresent = driver.findElements(By.xpath(XPath)).size()!= 0;
+        assertFalse(!isElementPresent(driver, By.xpath("//span[@class='name'][contains(text(),'Template')]")));
         System.out.println(iselementpresent);
         menue1_1.click();
 
         WebElement menue1_2 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Logotype')]"));
+        assertFalse(!isElementPresent(driver, By.xpath("//span[@class='name'][contains(text(),'Logotype')]")));
         Boolean iselementpresent_2 = driver.findElements(By.xpath(XPath)).size()!= 0;
         System.out.println(iselementpresent_2);
         menue1_2.click();
 
         WebElement menue3 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Catalog')]"));
         Boolean iselementpresent_3 = driver.findElements(By.xpath(XPath)).size()!= 0;
+        assertFalse(!isElementPresent(driver, By.xpath("//span[@class='name'][contains(text(),'Catalog')]")));
         System.out.println(iselementpresent_3);
         menue3.click();
 
-        WebElement menue3_1 = driver.findElement(By.xpath("//li[@id='doc-catalog']//a[@href='http://localhost/" +
-                                               "litecart/admin/?app=catalog&doc=catalog']//span[@class='name']"));
+        WebElement menue3_1 = driver.findElement(By.xpath("//li[@id='doc-catalog']//a[@href='http://localhost/litecart/" +
+                "admin/?app=catalog&doc=catalog']//span[@class='name']"));
         Boolean iselementpresent_4 = driver.findElements(By.xpath(XPath)).size()!= 0;
+        assertFalse(!isElementPresent(driver, By.xpath("//li[@id='doc-catalog']//a[@href='http://localhost/litecart/" +
+                "admin/?app=catalog&doc=catalog']//span[@class='name']")));
         System.out.println(iselementpresent_4);
         menue3_1.click();
 
         WebElement menue3_2 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Product Groups')]"));
         Boolean iselementpresent_5 = driver.findElements(By.xpath(XPath)).size()!= 0;
+        assertFalse(!isElementPresent(driver, By.xpath("//span[@class='name'][contains(text(),'Product Groups')]")));
         System.out.println(iselementpresent_5);
         menue3_2.click();
 
         WebElement menue3_3 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Option Groups')]"));
         Boolean iselementpresent_6 = driver.findElements(By.xpath(XPath)).size()!= 0;
+        assertFalse(!isElementPresent(driver, By.xpath("//span[@class='name'][contains(text(),'Option Groups')]")));
         System.out.println(iselementpresent_6);
         menue3_3.click();
 
         WebElement menue3_4 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Manufacturers')]"));
         Boolean iselementpresent_7 = driver.findElements(By.xpath(XPath)).size()!= 0;
+        assertFalse(!isElementPresent(driver, By.xpath("//span[@class='name'][contains(text(),'Manufacturers')]")));
         System.out.println(iselementpresent_7);
         menue3_4.click();
 
         WebElement menue3_5 = driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Delivery Statuses')]"));
         Boolean iselementpresent_8 = driver.findElements(By.xpath(XPath)).size()!= 0;
+        assertFalse(!isElementPresent(driver, By.xpath("//span[@class='name'][contains(text(),'Delivery Statuses')]")));
         System.out.println(iselementpresent_8);
         menue3_5.click();
 
